@@ -1,0 +1,228 @@
+body
+{
+  padding-top: 1em;
+  padding-left: 0.5cm;
+  padding-right: 0.5cm;
+  width: 100%;
+  background: rgb(51, 120, 101);
+}
+
+#titulo
+{
+  background-color: rgb(30, 98, 87);
+  color: white;
+	border-radius: 10px;
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+#tex
+{
+  padding-top: 1em;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+section
+{
+  padding-left: 1em;
+  background: white;
+  width: 49.7%;
+  height: 15cm;
+}
+
+aside
+{
+  background: rgb(239, 239, 239);
+  width: 50%;
+  position: relative;
+  vertical-align: top;
+  height: 15.5cm;
+}
+
+section, aside
+{
+  display: inline-table;
+}
+
+h3, h5
+{
+  font-weight: bold;
+}
+
+h3, h5, p
+{
+  text-align: center;
+}
+
+ul
+{
+  list-style: none;
+}
+
+#cruz
+{
+  align: center;
+  width: 200px;
+}
+
+#beneficios
+{
+  padding-bottom: 0.4cm;
+  text-align: center;
+}
+
+/*Libro*/
+
+#back
+{
+  background: white;
+}
+
+.bar
+{
+  height: 80px;
+  background: white;
+}
+
+.informacion
+{
+  margin: 2em;
+  padding-top: 1em;
+  background: white;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: rgb(30, 103, 59);
+}
+
+#folio
+{
+  padding-top: 2em;
+  padding-bottom: 2em;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.dato
+{
+  font-weight: bold;
+}
+
+.detalle
+{
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.inform
+{
+  margin: 2em;
+  padding-top: 1em;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: rgb(30, 103, 59);
+}
+
+#pres
+{
+  font-weight: bold;
+  font-size: 18px;
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+.recomendacion
+{
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+#foot
+{
+  color: white;
+}
+
+.sec
+{
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(41, 121, 90);
+}
+
+#identificacion
+{
+  font-weight: bold;
+}
+
+hr
+{
+  background: black;
+}
+
+#title
+{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#tabla
+{
+  border-style: solid;
+  border-color: black;
+}
+
+#sello
+{
+  padding-left: 1em;
+}
+
+.carnet
+{
+  width: 100%;
+}
+
+th
+{
+  color: white;
+  background: rgb(128, 128, 128);
+  border-color: black;
+  text-align: center;
+}
+td
+{
+  padding-bottom: 2em;
+  border-color: black;
+}
+
+#sello
+{
+  padding-left: 2em;
+}
+
+.firma
+{
+  border-right-style: solid;
+  font-weight: bold;
+  text-align: left;
+  text-align: center;
+  width: 250px;
+  border-color: rgb(30, 103, 59);
+}
+
+.firma2
+{
+  font-weight: bold;
+  text-align: center;
+  width: 250px;
+  border-color: rgb(30, 103, 59);
+}
+
+.cuadrado
+{
+  width: 3.5em;
+  height: 3.5em;
+  margin-left: 6em;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: rgb(30, 103, 59);
+}

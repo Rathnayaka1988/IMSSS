@@ -1,0 +1,34 @@
+.etiqueta
+{
+  display: inline-block;
+  width: 200px;
+  text-align: right;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+input[type="text"]
+{
+  width: 300px;
+  display: inline;
+}
+
+section
+{
+  width: 49%;
+}
+
+aside
+{
+  padding: .7em;
+  border-radius: 10px;
+  height: 1em;
+  width: 49%;
+  height: 222px;
+  vertical-align: top;
+}
+
+section, aside
+{
+  display: inline-table;
+}

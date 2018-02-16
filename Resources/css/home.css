@@ -1,0 +1,66 @@
+body
+{
+  background: rgb(30, 98, 87);
+}
+
+.navbar-custom
+{
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+
+  border-radius: 5px;
+  border-style: none;
+
+  background-color: rgb(51, 120, 101);
+}
+
+.navbar-custom .navbar-brand, .navbar-custom .navbar-brand:hover,
+.navbar-custom #icono, .navbar-custom .nav li a
+{
+  color: white;
+}
+
+.navbar-custom .nav li a:hover
+{
+  color: rgb(239, 239, 239);
+}
+
+a, a:hover
+{
+  text-decoration: none;
+}
+
+/* Paginas de opciones */
+
+#content
+{
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 30px;
+
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+
+  border-radius: 5px;
+  border-style: none;
+
+  background-color: white;
+}
+
+.title
+{
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+/*buscador*/
+
+.buscar
+{
+  margin-bottom: 40px;
+}
