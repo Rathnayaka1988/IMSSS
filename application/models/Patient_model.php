@@ -78,11 +78,14 @@ class Patient_model extends CI_Model{
     return false;
   }
 
-  function Update($informacion = null)
+  function Update($info = null)
   {
-    if($informacion != null)
+    if($info != null)
     {
-      $SQL = "UPDATE paciente SET carnet = '". $informacion['carnet'] . "' WHERE noSeguro = ". $informacion['seguro'];
+      $SQL = "UPDATE paciente SET nombre = '".$info['nombre'] . "', apellidoP = '" .  $info['paterno'] . "'," .
+      " apellidoM = '" . $info['materno'] . "', sexo = '" . $info['sexo'] . "', curp = '" . $info['curp'] . "', direccion = '" . $info['direccion'] . "'" .
+      " WHERE noSeguro = ".$info['seguro'];
+
       if($this->db->query($SQL))
       {
         return true;
@@ -95,7 +98,12 @@ class Patient_model extends CI_Model{
   {
     if($info != null)
     {
+      $SQL = "UPDATE paciente SET carnet = '".$info['carnet']."' WHERE noSeguro = ".$info['seguro'];
 
+      if($this->db->query($SQL))
+      {
+        return true;
+      }
     }
     return false;
   }

@@ -9,7 +9,7 @@
         <hr>
         <section>
           <label class="etiqueta">Numero de Seguro Social</label>
-          <input id="seguro" type="text" class = "form-control" value="<?=$noSeguro?>" disabled>
+          <input type="text" class = "form-control" value="<?=$noSeguro?>" disabled>
           <br>
 
           <label class="etiqueta">Nombre</label>
@@ -30,7 +30,24 @@
           <br>
 
           <label class="etiqueta">Sexo</label>
-          <input id="sexo" type="text" class = "form-control" value="<?=$sexo?>" disabled>
+          <select class="form-control" id="sexo" style="Display: inline-block; width: 200px" disabled>
+            <option value="Hombre"<?php
+              if($sexo == 'Hombre')
+              {
+                ?>
+                selected
+                <?php
+              }
+            ?>>Hombre</option>
+            <option value="Mujer"<?php
+              if($sexo == 'Mujer')
+              {
+                ?>
+                selected
+                <?php
+              }
+            ?>>Mujer</option>
+          </select>
           <br>
 
           <label class="etiqueta">Fecha de nacimiento</label>
@@ -85,17 +102,24 @@
 
         $('#subir').click(function() {
 
-          $("#normal").css("display","none");
-          $("#actualizar").css("display","inherit");
+          $("#normal").css("display","inherit");
+          $("#actualizar").css("display","none");
 
-          $('#nombre').removeAttr("disabled");
-          $('#paterno').removeAttr("disabled");
-          $('#materno').removeAttr("disabled");
-          $('#curp').removeAttr("disabled");
-          $('#sexo').removeAttr("disabled");
-          $('#direccion').removeAttr("disabled");
+          $('#nombre').attr("disabled", "disabled");
+          $('#paterno').attr("disabled", "disabled");
+          $('#materno').attr("disabled", "disabled");
+          $('#curp').attr("disabled", "disabled");
+          $('#sexo').attr("disabled", "disabled");
+          $('#direccion').attr("disabled", "disabled");
 
           var request;
+
+          var nombre = $('#nombre').val();
+          var paterno = $('#paterno').val();
+          var materno = $('#materno').val();
+          var curp = $('#curp').val();
+          var sexo = $('#sexo').val();
+          var direccion = $('#direccion').val();
 
           if(request)
             request.abort();
@@ -103,17 +127,18 @@
           request = $.ajax({
             url: "<?=base_url('Patient/Update')?>",
             type: "POST",
-            data: "seguro=" + <?= $noSeguro ?>
+            data: "name=" + nombre + "&ap=" + paterno + "&am=" + materno + "&sex=" + sexo + "&curp=" + curp
+                  + "&direccion=" + direccion + "&seguro=" + <?= $noSeguro ?>
           });
 
           request.done(function (response, textStatus, jqXHR){
             alert(response);
-            location.href = "<?=base_url()?>Patient";
           });
 
           request.fail(function(jqXHR,textStatus, thrown){
             console.log("Error:" + textStatus);
           });
+
 
           event.preventDefault();
 

@@ -141,7 +141,7 @@ class Patient extends CI_Controller{
     $datos = $this->input->post();
 
     $info['seguro'] = $datos['seguro'];
-    $info['seguro'] = $datos['nuevo'];
+    $info['carnet'] = $datos['nuevo'];
 
     $bool = $this->Patient_model->SetCarnet($info);
 
@@ -153,7 +153,22 @@ class Patient extends CI_Controller{
 
   function Update()
   {
-    # code...
+    $datos = $this->input->post();
+
+    $info['seguro'] = $datos['seguro'];
+    $info['nombre'] = $datos['name'];
+    $info['paterno'] = $datos['ap'];
+    $info['materno'] = $datos['am'];
+    $info['sexo'] = $datos['sex'];
+    $info['curp'] = $datos['curp'];
+    $info['direccion'] = $datos['direccion'];
+
+    $bool = $this->Patient_model->Update($info);
+
+    if($bool)
+      echo "Informacion actualizada con exito!";
+    else
+      echo "Error!";
   }
 
 }

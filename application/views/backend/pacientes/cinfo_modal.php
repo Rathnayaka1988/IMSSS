@@ -69,7 +69,7 @@
 
             request.done(function (response, textStatus, jqXHR){
               alert(response);
-              location.href = "<?=base_url()?>Patient";
+              location.href = "<?=base_url()?>Patient/Show/<?= $noSeguro?>";
             });
 
             request.fail(function(jqXHR,textStatus, thrown){

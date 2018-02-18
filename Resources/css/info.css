@@ -7,7 +7,7 @@
   margin-bottom: 20px;
 }
 
-input[type="text"]
+.form-control
 {
   width: 300px;
   display: inline;
