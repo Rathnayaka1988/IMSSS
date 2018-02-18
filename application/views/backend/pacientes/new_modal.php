@@ -114,14 +114,21 @@
                         <input type="number" id="ingreso" class="form-control" required style="width: 180px;">
                       </td>
                     </tr>
+                    <tr>
+                      <td colspan='3'>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p id="av4">Direccion</p>
+                      </td>
+                      <td>&nbsp;&nbsp;</td>
+                      <td colspan='4  '>
+                        <input type="text" id="direccion" class="form-control" required>
+                      </td>
+                    </tr>
                   </table>
                 </form>
               </div>
-
-              <div id="resultados">
-
-              </div>
-
             </div>
 
             <div class = "modal-footer">
@@ -150,6 +157,8 @@
           var curp = $('#CURP').val();
           var fecha = $('#fecha').val();
           var ing = $('#ingreso').val();
+          var direccion = $('#direccion').val();
+          alert(direccion);
 
           if(ing <= 4500)
           {
@@ -165,7 +174,7 @@
                   url: "<?=base_url('Patient/New')?>",
                   type: "POST",
                   data: "name=" + nombre + "&ap=" + ap + "&am=" + am + "&sex=" + sex + "&carnet=" + carnet + "&curp=" + curp + "&sex=" + sex
-                        + "&fecha=" + fecha + "&estado=" + estado
+                        + "&fecha=" + fecha + "&estado=" + estado + "&direccion=" + direccion
                 });
 
                 request.done(function (response, textStatus, jqXHR){

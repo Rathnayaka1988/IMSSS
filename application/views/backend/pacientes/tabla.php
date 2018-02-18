@@ -2,14 +2,15 @@
       <div id="content">
         <a id="create" href = "#new" class="form-control btn-success" style="text-align: center; text-decoration: none;" data-toggle = 'modal'>Nuevo derecho habitante</a>
         <hr>
-        <p class="title">
-          Ultimos 5 derecho habitantes registrados
-        </p>
-
         <?php
 
           if($person != null)
           {
+          ?>
+          <p class="title">
+            Ultimos 5 derecho habitantes registrados
+          </p>
+          <?php
             $content  = "<div class='table-responsive' style='width: 80%; margin: 0 auto;''>";
             $content .= "<table class='table table-hover table-bordered table-condensed'>";
             $content .=	"<thead>";
@@ -49,6 +50,15 @@
             $content .=	"</table>";
             $content .= "</div>";
             echo $content;
+          }
+          else {
+            {
+              ?>
+              <p class="title">
+                No hay Pacientes registrados en la plataforma
+              </p>
+              <?php
+            }
           }
         ?>
 

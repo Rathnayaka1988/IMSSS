@@ -51,6 +51,7 @@ class Patient extends CI_Controller{
     $data['curp'] = $post['curp'];
     $data['fecha'] = $post['fecha'];
     $data['estado'] = $post['estado'];
+    $data['direccion'] = $post['direccion'];
 
     if($this->Patient_model->Insert($data))
       echo "¡Derecho habiente registrado con exito!";
@@ -112,10 +113,8 @@ class Patient extends CI_Controller{
       $this->load->view('backend/pacientes/info', $info);
 
       //modales
-      $data['estado'] = $this->Patient_model->GetStates();
-      $this->load->view('backend/pacientes/new_modal', $data);
-      $this->load->view('backend/pacientes/carnet_modal');
-      $this->load->view('backend/pacientes/delete_modal');
+      $this->load->view('backend/pacientes/cinfo_modal', $info);
+      $this->load->view('backend/pacientes/dinfo_modal', $info);
 
       $this->load->view('backend/footer');
     }
@@ -135,6 +134,26 @@ class Patient extends CI_Controller{
       echo "Persona eliminada del sistema con exito!";
     else
       echo "Error!";
+  }
+
+  function Carnet()
+  {
+    $datos = $this->input->post();
+
+    $info['seguro'] = $datos['seguro'];
+    $info['seguro'] = $datos['nuevo'];
+
+    $bool = $this->Patient_model->SetCarnet($info);
+
+    if($bool)
+      echo "Carnet actualizado con exito!";
+    else
+      echo "Error!";
+  }
+
+  function Update()
+  {
+    # code...
   }
 
 }

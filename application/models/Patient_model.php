@@ -66,9 +66,9 @@ class Patient_model extends CI_Model{
     if($datos != null)
     {
 
-      $SQL = "INSERT INTO paciente (carnet, nombre, apellidoP, apellidoM, CURP, sexo, fecha_nacimiento, id_lugar) VALUES
+      $SQL = "INSERT INTO paciente (carnet, nombre, apellidoP, apellidoM, CURP, sexo, fecha_nacimiento, id_lugar, direccion) VALUES
       ('". $datos['carnet'] ."', '". $datos['nombre'] ."', '". $datos['ap'] ."', '". $datos['am'] ."',
-        '". $datos['curp'] ."', '". $datos['sex'] ."', '". $datos['fecha'] ."', '". $datos['estado'] ."')";
+        '". $datos['curp'] ."', '". $datos['sex'] ."', '". $datos['fecha'] ."', '". $datos['estado'] ."', '". $datos['direccion']."')";
 
       if($this->db->query($SQL))
       {
@@ -82,8 +82,22 @@ class Patient_model extends CI_Model{
   {
     if($informacion != null)
     {
-      
+      $SQL = "UPDATE paciente SET carnet = '". $informacion['carnet'] . "' WHERE noSeguro = ". $informacion['seguro'];
+      if($this->db->query($SQL))
+      {
+        return true;
+      }
     }
+    return false;
+  }
+
+  function SetCarnet($info = null)
+  {
+    if($info != null)
+    {
+
+    }
+    return false;
   }
 
   function Delete($seguro = null)

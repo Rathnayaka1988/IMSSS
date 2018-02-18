@@ -9,28 +9,28 @@
         <hr>
         <section>
           <label class="etiqueta">Numero de Seguro Social</label>
-          <input type="text" class = "form-control" value="<?=$noSeguro?>" disabled>
+          <input id="seguro" type="text" class = "form-control" value="<?=$noSeguro?>" disabled>
           <br>
 
           <label class="etiqueta">Nombre</label>
-          <input type="text" class = "form-control" value="<?=$nombre?>" disabled>
+          <input id="nombre" type="text" class = "form-control" value="<?=$nombre?>" disabled>
           <br>
 
           <label class="etiqueta">Apellido Paterno</label>
-          <input type="text" class = "form-control" value="<?=$apellidoP?>" disabled>
+          <input id="paterno" type="text" class = "form-control" value="<?=$apellidoP?>" disabled>
           <br>
 
           <label class="etiqueta">Apellido Materno</label>
-          <input type="text" class = "form-control" value="<?=$apellidoM?>" disabled>
+          <input id="materno" type="text" class = "form-control" value="<?=$apellidoM?>" disabled>
 
         </section>
         <aside>
           <label class="etiqueta">CURP</label>
-          <input type="text" class = "form-control" value="<?=$CURP?>" disabled>
+          <input id="curp" type="text" class = "form-control" value="<?=$CURP?>" disabled>
           <br>
 
           <label class="etiqueta">Sexo</label>
-          <input type="text" class = "form-control" value="<?=$sexo?>" disabled>
+          <input id="sexo" type="text" class = "form-control" value="<?=$sexo?>" disabled>
           <br>
 
           <label class="etiqueta">Fecha de nacimiento</label>
@@ -46,7 +46,7 @@
           <br>
 
           <label class="etiqueta">Direccion</label>
-          <input type="text" class = "form-control" value="<?=$direccion?>" disabled>
+          <input id="direccion" type="text" class = "form-control" value="<?=$direccion?>" disabled>
 
         </aside>
 
@@ -72,7 +72,63 @@
         $('#act').click(function() {
 
           $("#normal").css("display","none");
+          $("#actualizar").css("display","inherit");
 
+          $('#nombre').removeAttr("disabled");
+          $('#paterno').removeAttr("disabled");
+          $('#materno').removeAttr("disabled");
+          $('#curp').removeAttr("disabled");
+          $('#sexo').removeAttr("disabled");
+          $('#direccion').removeAttr("disabled");
+
+        });
+
+        $('#subir').click(function() {
+
+          $("#normal").css("display","none");
+          $("#actualizar").css("display","inherit");
+
+          $('#nombre').removeAttr("disabled");
+          $('#paterno').removeAttr("disabled");
+          $('#materno').removeAttr("disabled");
+          $('#curp').removeAttr("disabled");
+          $('#sexo').removeAttr("disabled");
+          $('#direccion').removeAttr("disabled");
+
+          var request;
+
+          if(request)
+            request.abort();
+
+          request = $.ajax({
+            url: "<?=base_url('Patient/Update')?>",
+            type: "POST",
+            data: "seguro=" + <?= $noSeguro ?>
+          });
+
+          request.done(function (response, textStatus, jqXHR){
+            alert(response);
+            location.href = "<?=base_url()?>Patient";
+          });
+
+          request.fail(function(jqXHR,textStatus, thrown){
+            console.log("Error:" + textStatus);
+          });
+
+          event.preventDefault();
+
+        });
+
+        $('#bajar').click(function() {
+          $("#normal").css("display","inherit");
+          $("#actualizar").css("display","none");
+
+          $('#nombre').attr("disabled", "disabled");
+          $('#paterno').attr("disabled", "disabled");
+          $('#materno').attr("disabled", "disabled");
+          $('#curp').attr("disabled", "disabled");
+          $('#sexo').attr("disabled", "disabled");
+          $('#direccion').attr("disabled", "disabled");
         });
 
       });

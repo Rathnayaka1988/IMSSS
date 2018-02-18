@@ -7,7 +7,9 @@
             </div>
 
             <div class = "modal-body">
-              <p id="mensaje"></p>
+              <p id="mensaje">
+                ¿Desea borrar del sistema a <?= $nombre ?>
+              </p>
             </div>
 
             <div class = "modal-footer">
@@ -24,17 +26,6 @@
 
           var seguro;
 
-          $("button").on("click", function (e){
-
-            var user = $(this).attr('name');
-            seguro = $(this).attr('id');
-
-            var persona = user;
-
-            $("#mensaje").text('¿Desea borrar del sistema al "' + persona + '"?');
-
-          });
-
           $("#delete").click(function(event) {
 
             var request;
@@ -45,7 +36,7 @@
             request = $.ajax({
               url: "<?=base_url('Patient/DeleteThis')?>",
               type: "POST",
-              data: "seguro=" + seguro
+              data: "seguro=" + <?= $noSeguro ?>
             });
 
             request.done(function (response, textStatus, jqXHR){
