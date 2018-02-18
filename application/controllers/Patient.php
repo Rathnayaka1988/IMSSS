@@ -31,7 +31,6 @@ class Patient extends CI_Controller{
       $data['estado'] = $this->Patient_model->GetStates();
       $this->load->view('backend/pacientes/new_modal', $data);
       $this->load->view('backend/pacientes/delete_modal');
-      $this->load->view('backend/pacientes/carnet_modal');
 
       $this->load->view('backend/footer');
     }

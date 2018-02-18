@@ -21,7 +21,7 @@
             $content .= "<th style='text-align: center;'>Apellido Materno</th>";
             $content .= "<th style='text-align: center;'>CURP</th>";
             $content .= "<th style='text-align: center;'>Edad</th>";
-            $content .= "<th style='text-align: center;' colspan='2'>Acciones</th>";
+            $content .= "<th style='text-align: center;'>Accion</th>";
             $content .=	"</tr>";
             $content .=	"</thead>";
             $content .=	"<tbody>";
@@ -39,7 +39,6 @@
                   $content .= "<td style='text-align: center;'>". $paciente['apellidoM']."</td>";
                   $content .= "<td style='text-align: center;'>". $paciente['CURP']."</td>";
                   $content .= "<td style='text-align: center;'>asd</td>";
-                  $content .= "<td style='text-align: center;'><Button name = '".$paciente['noSeguro']."' class = 'btn btn-warning' href='#modificarnet' data-toggle = 'modal'>Cambiar Carnet</Button></td>";
                   $content .= "<td style='text-align: center;'><Button name = '$value' id = '".$paciente['noSeguro']."' class = 'btn btn-danger' href='#eliminar' data-toggle = 'modal'>Baja</Button></td>";
                 }
               }
