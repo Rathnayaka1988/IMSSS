@@ -102,16 +102,6 @@
 
         $('#subir').click(function() {
 
-          $("#normal").css("display","inherit");
-          $("#actualizar").css("display","none");
-
-          $('#nombre').attr("disabled", "disabled");
-          $('#paterno').attr("disabled", "disabled");
-          $('#materno').attr("disabled", "disabled");
-          $('#curp').attr("disabled", "disabled");
-          $('#sexo').attr("disabled", "disabled");
-          $('#direccion').attr("disabled", "disabled");
-
           var request;
 
           var nombre = $('#nombre').val();
@@ -133,6 +123,16 @@
 
           request.done(function (response, textStatus, jqXHR){
             alert(response);
+
+            $("#normal").css("display","inherit");
+            $("#actualizar").css("display","none");
+
+            $('#nombre').attr("disabled", "disabled");
+            $('#paterno').attr("disabled", "disabled");
+            $('#materno').attr("disabled", "disabled");
+            $('#curp').attr("disabled", "disabled");
+            $('#sexo').attr("disabled", "disabled");
+            $('#direccion').attr("disabled", "disabled");
           });
 
           request.fail(function(jqXHR,textStatus, thrown){

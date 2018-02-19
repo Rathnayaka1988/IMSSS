@@ -3,28 +3,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Book extends CI_Controller{
 
+  public function __construct()
+  {
+    parent::__construct();
+
+    $this->load->model('Patient_model');
+  }
+
   function Index()
   {
-    $this->load->view('frontend/head');
+    $validacion['acceso'] = false;
+
+    $this->load->view('frontend/head', $validacion);
     $this->load->view('frontend/body');
   }
 
-  function Libro1()
+  function Access()
   {
-    $this->load->view('frontend/head');
-    $this->load->view('frontend/body1');
+    $post = $this->input->post();
+
+    $seguro = $post['seguro'];
+
+    $info = $this->Patient_model->GetPerson($seguro);
+
+    if($info != null)
+      echo base_url('Book/Details/'.$seguro);
+    else
+      echo "no existe el paciente";
   }
 
-  function Libro2()
+  function Details($persona = null)
   {
-    $this->load->view('frontend/head');
-    $this->load->view('frontend/body2');
-  }
+    if($persona != null)
+    {
+      $validacion['acceso'] = true;
+      $this->load->view('frontend/head',  $validacion);
 
-  function Libro3()
-  {
-    $this->load->view('frontend/head');
-    $this->load->view('frontend/body3');
+      $this->load->view('frontend/book', $persona);
+
+      $this->load->view('frontend/footer');
+    }
+    else
+      header("Location: ".base_url());
   }
 
 }

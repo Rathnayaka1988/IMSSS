@@ -1,4 +1,5 @@
     <div id="back">
+
       <section id="izq">
         <div align="center">
           <img src="<?=base_url()?>Resources/img/hospital.png"></img>
@@ -7,6 +8,7 @@
         </div>
         <br>
       </section>
+
       <aside id="der">
         <div class="bar">
           <img class="bar" style="float:left" src="<?=base_url()?>Resources/img/hospital.png"></img>
@@ -46,10 +48,6 @@
           </p>
         </div>
       </aside>
+
     </div>
     <br>
-    <p id="foot">
-      Derechos Reservados Hospital Regional Alta Especialidad Ixtapaluca | DEMO
-    </p>
-  </body>
-</html>
