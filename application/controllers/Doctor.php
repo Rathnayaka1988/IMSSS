@@ -38,7 +38,6 @@ class Doctor extends CI_Controller{
   {
     $post = $this->input->post();
 
-    $data['nombre'] = $post['name'];
     $data['apellidop'] = $post['ap'];
     $data['apellidom'] = $post['am'];
     $data['sexo'] = $post['sex'];

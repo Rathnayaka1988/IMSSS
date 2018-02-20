@@ -37,10 +37,14 @@ class Book extends CI_Controller{
     if($persona != null)
     {
       $validacion['acceso'] = true;
-      $this->load->view('frontend/head',  $validacion);
 
-      $this->load->view('frontend/book', $persona);
+      $this->load->view('frontend/head', $validacion);
 
+      $info = $this->Patient_model->GetPerson($persona);
+
+      print_r($info);
+
+      $this->load->view('frontend/book', $info);
       $this->load->view('frontend/footer');
     }
     else
