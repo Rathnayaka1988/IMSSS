@@ -28,7 +28,7 @@
 			        </p>
 			        <div class="informacion">
 			          <p class="dato">
-			            NOMBRE DEL PACIENTE: ____<?= $nombre ?>__________________
+			            NOMBRE DEL PACIENTE: <span class="base">____<?= $nombre ?>____</span>
 			          </p>
 			          <p class="detalle">
 			                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -36,7 +36,7 @@
 																				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nombre(s)
 			          </p>
 			          <p class="dato">
-			            _____________<?= $apellidoP ?> ______________<?= $apellidoM ?>_____________
+			            _____________<span class="base"><?= $apellidoP ?></span> ______________<span class="base"><?= $apellidoM ?></span>_____________
 			          </p>
 			          <p class="detalle">
 			              Apellido Paterno   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -44,7 +44,7 @@
 			          </p>
 			          <br>
 			          <p class="dato">
-			            CURP: ____________<?= $CURP ?>_____________________________
+			            CURP: ____________<span class="base"><?= $CURP ?></span>__________________________
 			          </p>
 			          <p id="folio">
 			            No. de CARNET:
@@ -68,19 +68,34 @@
 				            GRUPO SANGUÍNEO Y RH
 				          </p>
 				          <p>
-				            _________<?= $tipo ?>______________________
+				            ______________<span class="base"><span class="base"><?= $tipo ?></span>____________
 				          </p>
 				          <p>
 				            DATOS GENERALES
 				          </p>
 				          <p>
-				            EDAD: ______ SEXO: F  M  ____<?= $fecha_nacimiento ?>_____<?= $descripcion ?>___________
+				            EDAD: ______ SEXO: <?php
+
+										if($sexo == "Hombre")
+										{
+											?>
+											F  <span class="base">M</span>
+											<?php
+										}
+										else
+										{
+											?>
+											<span class="base">F</span>  M
+											<?php
+										}
+
+										?><span class="base">____<?= $fecha_nacimiento ?>_____<?= $descripcion ?>___________</span>
 				            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				            FECHA DE NAC. Y LUGAR
 				          </p>
 				          <br>
 				          <p>
-				            DOMICILIO: ___<?= $direccion ?>___________________________________________________
+				            DOMICILIO: <span class="base">__________________________<?= $direccion ?>____________________________</span>
 				            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				            CALLE Y No. COLONIA MUNICIPIO O DELEGACIÓN
 				          </p>
@@ -125,4 +140,3 @@
 				        </div>
 				      </div>
 						</div>
-						

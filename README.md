@@ -15,3 +15,7 @@ Cambio 3.0.3
   -> Mejora de estructura del proyecto
   -> Separación del libro por partes
   -> Libro muestra informacion del usuario
+
+Cambio 3.0.4
+
+  ->Diseño de libro completo
