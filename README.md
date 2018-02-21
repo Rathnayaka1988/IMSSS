@@ -8,3 +8,10 @@ Cambio 2.3
 Cambio 2.3.1
 
   -> Modulo de pacientes terminado
+
+Cambio 3.0.3
+
+  -> Cambios en la ubicación de archivos
+  -> Mejora de estructura del proyecto
+  -> Separación del libro por partes
+  -> Libro muestra informacion del usuario

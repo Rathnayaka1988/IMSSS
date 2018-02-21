@@ -42,9 +42,10 @@ class Book extends CI_Controller{
 
       $info = $this->Patient_model->GetPerson($persona);
 
-      print_r($info);
+      $this->load->view('frontend/persona', $info);
 
-      $this->load->view('frontend/book', $info);
+      
+      $this->load->view('frontend/citas');
       $this->load->view('frontend/footer');
     }
     else

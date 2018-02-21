@@ -33,7 +33,8 @@ class Patient_model extends CI_Model{
   {
     if($id != null)
     {
-      $result = $this->db->query("SELECT * FROM paciente WHERE noSeguro = ".$id."");
+      $result = $this->db->query("SELECT p.noSeguro, p.carnet, p.nombre, p.apellidoP, p.apellidoM, p.CURP, p.direccion, p.sexo, p.fecha_nacimiento, l.descripcion, s.tipo
+        FROM paciente as p, lugar as l, sangre as s WHERE p.noSeguro = ".$id." and l.idlugar = p.id_lugar and s.idSangre = p.idSangre");
       if($result->num_rows() > 0)
       {
         return $result->row();
