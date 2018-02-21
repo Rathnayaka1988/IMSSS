@@ -16,6 +16,19 @@ class Patient_model extends CI_Model{
     }
   }
 
+  function GetSangre()
+  {
+    $result = $this->db->query("Select * from sangre");
+    if($result->num_rows() > 0)
+    {
+      return $result;
+    }
+    else
+    {
+      return null;
+    }
+  }
+
   function GetPatient()
   {
     $result = $this->db->query("SELECT * fROM paciente ORDER BY noSeguro DESC LIMIT 5 ");
@@ -67,9 +80,10 @@ class Patient_model extends CI_Model{
     if($datos != null)
     {
 
-      $SQL = "INSERT INTO paciente (carnet, nombre, apellidoP, apellidoM, CURP, sexo, fecha_nacimiento, id_lugar, direccion) VALUES
+      $SQL = "INSERT INTO paciente (carnet, nombre, apellidoP, apellidoM, CURP, sexo, fecha_nacimiento, id_lugar, direccion, idSangre) VALUES
       ('". $datos['carnet'] ."', '". $datos['nombre'] ."', '". $datos['ap'] ."', '". $datos['am'] ."',
-        '". $datos['curp'] ."', '". $datos['sex'] ."', '". $datos['fecha'] ."', '". $datos['estado'] ."', '". $datos['direccion']."')";
+        '". $datos['curp'] ."', '". $datos['sex'] ."', '". $datos['fecha'] ."', '". $datos['estado'] ."', '". $datos['direccion'].
+        "', ". $datos['sangre'] .")";
 
       if($this->db->query($SQL))
       {

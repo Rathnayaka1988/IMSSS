@@ -19,3 +19,8 @@ Cambio 3.0.3
 Cambio 3.0.4
 
   ->Diseño de libro completo
+
+Cambio 3.0.6
+
+  -> Anexo de Sangre al formulario de Pacientes
+  -> Cambios de diseño menores

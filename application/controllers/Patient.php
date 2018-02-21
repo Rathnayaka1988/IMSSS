@@ -29,6 +29,7 @@ class Patient extends CI_Controller{
 
       //modales
       $data['estado'] = $this->Patient_model->GetStates();
+      $data['sangre'] = $this->Patient_model->GetSangre();
       $this->load->view('backend/pacientes/new_modal', $data);
       $this->load->view('backend/pacientes/delete_modal');
 
@@ -51,6 +52,7 @@ class Patient extends CI_Controller{
     $data['fecha'] = $post['fecha'];
     $data['estado'] = $post['estado'];
     $data['direccion'] = $post['direccion'];
+    $data['sangre'] = $post['sangre'];
 
     if($this->Patient_model->Insert($data))
       echo "¡Derecho habiente registrado con exito!";

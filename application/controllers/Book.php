@@ -41,11 +41,11 @@ class Book extends CI_Controller{
       $this->load->view('frontend/head', $validacion);
 
       $info = $this->Patient_model->GetPerson($persona);
-
       $this->load->view('frontend/persona', $info);
 
-      
+      $citas;
       $this->load->view('frontend/citas');
+
       $this->load->view('frontend/footer');
     }
     else

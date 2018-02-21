@@ -1,12 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Cita extends CI_Controller{
+class Appointment extends CI_Controller{
 
   public function __construct()
   {
     parent::__construct();
-    //Codeigniter : Write Less Do More
+
+    $this->load->model('Appointment_model');
+
   }
 
   function Index()
@@ -21,8 +23,12 @@ class Cita extends CI_Controller{
       $data = array('usuario' => $this->session->userdata('user'));
       $this->load->view('backend/nav', $data);
 
-      $this->load->view('backend/citas/cit');
-      
+      $this->load->view('backend/citas/tabla');
+
+      //modales
+      $this->load->view('backend/citas/new_modal');
+
+
       $this->load->view('backend/footer');
     }
     else

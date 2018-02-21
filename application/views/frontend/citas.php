@@ -400,7 +400,7 @@
         <nav>
         <center>
         <a style="color: rgb(239, 239, 239);" id="bb-nav-prev" href="#" class="bb-custom-icon">
-          <span class = "fa fa-home"></span> Anterior
+          <span class = "fa fa-arrow-alt-circle-left"></span> Anterior
         </a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a style="color: rgb(239, 239, 239);" id="" href="#">
@@ -408,7 +408,7 @@
         </a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a style="color: rgb(239, 239, 239);" id="bb-nav-next" href="#" class="bb-custom-icon">
-          <span class = "fa fa-qrcode"></span> Siguiente
+          <span class = "fa fa-arrow-alt-circle-right"></span> Siguiente
         </a>
         </center>
         </nav>

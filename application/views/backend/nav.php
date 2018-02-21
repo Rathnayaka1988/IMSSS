@@ -18,7 +18,7 @@
                 <a href="<?= base_url()?>Admin/Home/"><span class = "fa fa-home"></span> Inicio</a>
               </li>
               <li <?php if($cita) { ?>class="active"<?php } ?>>
-                <a href="<?= base_url()?>Cita/"><span class = "fa fa-address-card"></span> Citas</a>
+                <a href="<?= base_url()?>Appointment/"><span class = "fa fa-address-card"></span> Citas</a>
               </li>
               <li <?php if($pacientes) { ?>class="active"<?php } ?>>
                 <a href="<?= base_url()?>Patient/"><span class = "fa fa-users"></span> Pacientes</a>

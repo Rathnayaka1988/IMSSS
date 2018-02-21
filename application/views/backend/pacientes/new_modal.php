@@ -74,7 +74,7 @@
                     </tr>
                     <tr>
                       <td>
-                        <p id="av4">Fecha de Nacimiento (YYYY-MM-DD)</p>
+                        <p id="av4">Fecha de Nacimiento</p>
                       </td>
                       <td>&nbsp;&nbsp;</td>
                       <td>
@@ -113,6 +113,28 @@
                       <td>
                         <input type="number" id="ingreso" class="form-control" required style="width: 180px;">
                       </td>
+                      <td>&nbsp;&nbsp;</td>
+                      <td>
+                        <p id="av4">Tipo Sangre</p>
+                      </td>
+
+                      <td>
+                        <select class="form-control" id="sangre" style="width: auto;">
+                          <option value="." style="display: none">Sangre</option>
+                          <?php
+                            foreach ($sangre->result_array() as $tipo)
+                            {
+                              foreach ($tipo as $fila => $nombre)
+                              {
+                                if($fila == "tipo")
+                                {
+                                  echo "<option value='".$tipo['idSangre']."'>".$nombre."</option>";
+                                }
+                              }
+                            }
+                          ?>
+                        </select>
+                      </td>
                     </tr>
                     <tr>
                       <td colspan='3'>&nbsp;</td>
@@ -145,6 +167,7 @@
 
         var sex = "x";
         var estado = 0;
+        var sangr = 0;
 
         $("#crear").click(function(event) {
 
@@ -158,7 +181,11 @@
           var fecha = $('#fecha').val();
           var ing = $('#ingreso').val();
           var direccion = $('#direccion').val();
-          alert(direccion);
+          var sangre = $("#sangre").val();
+
+          var cum = fecha.split("/");
+
+          fecha = cum[2] + "-" + cum[1] + "-" + cum[0];
 
           if(ing <= 4500)
           {
@@ -166,27 +193,32 @@
             {
               if(estado != 0)
               {
+                if(sangr != 0)
+                {
+                  if(request)
+                    request.abort();
 
-                if(request)
-                  request.abort();
+                  request = $.ajax({
+                    url: "<?=base_url('Patient/New')?>",
+                    type: "POST",
+                    data: "name=" + nombre + "&ap=" + ap + "&am=" + am + "&sex=" + sex + "&carnet=" + carnet + "&curp=" + curp + "&sex=" + sex
+                          + "&fecha=" + fecha + "&estado=" + estado + "&direccion=" + direccion + "&sangre=" + sangre
+                  });
 
-                request = $.ajax({
-                  url: "<?=base_url('Patient/New')?>",
-                  type: "POST",
-                  data: "name=" + nombre + "&ap=" + ap + "&am=" + am + "&sex=" + sex + "&carnet=" + carnet + "&curp=" + curp + "&sex=" + sex
-                        + "&fecha=" + fecha + "&estado=" + estado + "&direccion=" + direccion
-                });
+                  request.done(function (response, textStatus, jqXHR){
+                    alert(response);
+                    location.href = "<?=base_url()?>Patient";
+                  });
 
-                request.done(function (response, textStatus, jqXHR){
-                  alert(response);
-                  location.href = "<?=base_url()?>Patient";
-                });
+                  request.fail(function(jqXHR,textStatus, thrown){
+                    console.log("Error:" + textStatus);
+                  });
 
-                request.fail(function(jqXHR,textStatus, thrown){
-                  console.log("Error:" + textStatus);
-                });
+                  event.preventDefault();
+                }
+                else
+                  alert("Es necesario especificar el tipo de sangre de la persona");
 
-                event.preventDefault();
               }
               else
                 alert("Es necesario especificar el estado donde nacio la persona");
@@ -213,6 +245,14 @@
           estado = $("#estado").val();
 
         });
+
+        $("#sangre").change(function(event) {
+
+          sangr = $("#sangre").val();
+
+        });
+
+        $( "#fecha" ).datepicker();
 
       });
 
